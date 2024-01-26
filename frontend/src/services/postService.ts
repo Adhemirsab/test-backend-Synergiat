@@ -2,7 +2,9 @@ import { Post } from '../models/post';
 
 export const getPosts = async (): Promise<Post[]> => {
 	try {
-		const response = await fetch('http://localhost:3002/api/post');
+		const response = await fetch(
+			'https://test-backend-synergiat.onrender.com/api/post',
+		);
 		if (!response.ok) {
 			throw new Error(`HTTP error! status: ${response.status}`);
 		}
@@ -16,9 +18,12 @@ export const getPosts = async (): Promise<Post[]> => {
 
 export const deletePost = async (id: string): Promise<void> => {
 	try {
-		const response = await fetch(`http://localhost:3002/api/post/${id}`, {
-			method: 'DELETE',
-		});
+		const response = await fetch(
+			`https://test-backend-synergiat.onrender.com/api/post/${id}`,
+			{
+				method: 'DELETE',
+			},
+		);
 		if (!response.ok) {
 			throw new Error(`HTTP error! status: ${response.status}`);
 		}
