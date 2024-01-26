@@ -1,5 +1,5 @@
 import express from "express";
-// import cors from 'cors';
+import cors from "cors";
 import dotenv from "dotenv";
 dotenv.config();
 import dbConnect from "./config/mongo";
@@ -7,7 +7,13 @@ import router from "./routes/index";
 import { swaggerSpec } from "./utils/swaggerSpec";
 import swaggerUi from "swagger-ui-express";
 const app = express();
-// app.use(cors());
+
+//CORS
+const corsOptions = {
+  origin: ["http://localhost:5173", "https://workwake.onrender.com"],
+  optionsSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
 
 //Midlewares
 app.use(express.json());
