@@ -1,8 +1,8 @@
-import { useEffect, type FC } from 'react';
 import { usePostsStore } from '../../store/usePostsStore';
-import { getPosts } from '../../services/postService';
+
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import { Box, Button, Typography } from '@mui/material';
+import { FC } from 'react';
 type ListPostsProps = object;
 
 const columns: GridColDef[] = [
@@ -43,15 +43,8 @@ const columns: GridColDef[] = [
 ];
 
 export const ListPosts: FC<ListPostsProps> = () => {
-	const { posts, setPosts } = usePostsStore();
-	useEffect(() => {
-		const loadPosts = async () => {
-			const postsFromDb = await getPosts();
-			setPosts(postsFromDb);
-		};
+	const posts = usePostsStore(state => state.posts);
 
-		loadPosts();
-	}, []);
 	const transformedPosts = posts.map(post => ({
 		id: post._id,
 		title: post.title,
