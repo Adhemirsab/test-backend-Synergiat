@@ -1,13 +1,12 @@
 import type { FC } from 'react';
+import { CardsPost } from '../../components/CardsPost/CardsPost';
 
 type DashboardProps = object;
 
 export const Dashboard: FC<DashboardProps> = () => {
 	return (
 		<div>
-			<h1>Dashboard</h1>
-			<h1>Dashboard</h1>
-			<h1>Dashboard</h1>
+			<CardsPost />
 		</div>
 	);
 };

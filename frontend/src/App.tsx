@@ -9,7 +9,6 @@ import { Layout } from './pages/Layout/Layout.js';
 import { Dashboard } from './pages/Dashboard/Dashboard.js';
 import { CreatePost } from './pages/CreatePost/CreatePost.js';
 import { ListPosts } from './components/ListPosts/ListPosts';
-import { LandingPage } from './pages/LandingPage/LandingPage.js';
 
 function App() {
 	const mode = useStore(state => state.mode);
@@ -20,14 +19,12 @@ function App() {
 				<CssBaseline />
 				<Routes>
 					<Route element={<Layout />}>
-						<Route path='/panel' element={<Navigate to='/home' replace />} />
+						<Route path='/' element={<Navigate to='/home' replace />} />
 						<Route path='home' element={<Dashboard />} />
 						<Route path='publicar' element={<CreatePost />} />
 						<Route path='explorar' element={<ListPosts />} />
 					</Route>
 				</Routes>
-
-				<LandingPage />
 			</ThemeProvider>
 		</div>
 	);
