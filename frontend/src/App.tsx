@@ -9,6 +9,7 @@ import { Layout } from './pages/Layout/Layout.js';
 import { Dashboard } from './pages/Dashboard/Dashboard.js';
 import { CreatePost } from './pages/CreatePost/CreatePost.js';
 import { ListPosts } from './components/ListPosts/ListPosts';
+import { LandingPage } from './pages/LandingPage/LandingPage.js';
 
 function App() {
 	const mode = useStore(state => state.mode);
@@ -26,7 +27,7 @@ function App() {
 					</Route>
 				</Routes>
 
-				{/* <LandingPage /> */}
+				<LandingPage />
 			</ThemeProvider>
 		</div>
 	);
