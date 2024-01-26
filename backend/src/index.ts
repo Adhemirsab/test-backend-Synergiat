@@ -10,7 +10,10 @@ const app = express();
 
 //CORS
 const corsOptions = {
-  origin: ["http://localhost:5173", "https://workwake.onrender.com"],
+  origin: [
+    "http://localhost:5173",
+    "https://test-frontend-synergiat.onrender.com",
+  ],
   optionsSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
