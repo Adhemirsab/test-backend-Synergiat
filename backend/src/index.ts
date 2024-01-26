@@ -21,7 +21,7 @@ app.use(express.json());
 // routes
 app.use("/api/v1-doc", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use("/api", router);
-const PORT: string = process.env.PORT as string;
+const PORT: string = (process.env.PORT as string) || "4000";
 
 app.listen(PORT, () => {
   console.log(`server listening on port ${PORT}`);
