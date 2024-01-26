@@ -1,0 +1,96 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Blog API
+  description: API para gestionar posts en un blog
+  contact:
+    name: Tu nombre
+    email: tu@email.com
+paths:
+  /api/post:
+    post:
+      summary: Crea un nuevo post
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                body:
+                  type: string
+                image:
+                  type: string
+                  format: binary
+      responses:
+        "201":
+          description: Post creado exitosamente
+        "400":
+          description: No se cargó ningún archivo
+    get:
+      summary: Obtiene todos los posts
+      responses:
+        "200":
+          description: Lista de posts
+
+  /api/post/{id}:
+    get:
+      summary: Obtiene un post por su ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: ID del post
+      responses:
+        "200":
+          description: Datos del post
+        "404":
+          description: No se encontró el post
+    put:
+      summary: Actualiza un post por su ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: ID del post
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                body:
+                  type: string
+                image:
+                  type: string
+                  format: binary
+      responses:
+        "200":
+          description: Post actualizado exitosamente
+        "400":
+          description: No se cargó ningún archivo
+        "404":
+          description: No se encontró el post
+    delete:
+      summary: Elimina un post por su ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: ID del post
+      responses:
+        "200":
+          description: Post eliminado correctamente
+        "404":
+          description: No se encontró el post
